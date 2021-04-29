@@ -2,13 +2,13 @@ package MDbWatch.Object;
 
 public class FilmProduction {
 	private String idProduction;
-	private String nome;
+	private String name;
 	private String nation;
 	
-	public FilmProduction(String idProduction, String nome, String nation) {
+	public FilmProduction(String idProduction, String name, String nation) {
 		super();
 		this.idProduction = idProduction;
-		this.nome = nome;
+		this.name = name;
 		this.nation = nation;
 	}
 	
@@ -18,11 +18,11 @@ public class FilmProduction {
 	public void setIdProduction(String idProduction) {
 		this.idProduction = idProduction;
 	}
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String nome) {
+		this.name = nome;
 	}
 	public String getNation() {
 		return nation;
@@ -32,7 +32,7 @@ public class FilmProduction {
 	}
 	
 	public String toString() {
-		return "FilmProduction [idProduction=" + idProduction + ", nome=" + nome + ", nation=" + nation + "]";
+		return "FilmProduction [idProduction=" + idProduction + ", nome=" + name + ", nation=" + nation + "]";
 	}
 	
 	

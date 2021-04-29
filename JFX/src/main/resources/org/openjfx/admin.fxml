@@ -68,7 +68,7 @@
          <items>
             <TabPane prefHeight="523.0" prefWidth="898.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                  <Tab text="Personalità">
+                  <Tab onSelectionChanged="#openCastTab" text="Personalità">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
@@ -93,25 +93,25 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Produzione">
+                  <Tab onSelectionChanged="#openProductionTab" text="Produzione">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <TableView layoutX="249.0" layoutY="36.0" prefHeight="425.0" prefWidth="636.0">
+                              <TableView fx:id="tableProduction" layoutX="249.0" layoutY="36.0" prefHeight="425.0" prefWidth="636.0">
                                  <columns>
-                                    <TableColumn prefWidth="35.0" text="ID" />
-                                    <TableColumn prefWidth="142.0" text="Nome" />
-                                    <TableColumn prefWidth="104.0" text="Nazione" />
+                                    <TableColumn fx:id="idFilmProduction" prefWidth="35.0" text="ID" />
+                                    <TableColumn fx:id="nameFilmProduction" prefWidth="142.0" text="Nome" />
+                                    <TableColumn fx:id="nationFilmProduction" prefWidth="104.0" text="Nazione" />
                                  </columns>
                               </TableView>
-                              <TextField layoutX="14.0" layoutY="43.0" promptText="Nome" />
-                              <TextField layoutX="14.0" layoutY="78.0" promptText="Nazione" />
-                              <Button layoutX="14.0" layoutY="120.0" mnemonicParsing="false" text="Aggiungi Produzione" />
+                              <TextField fx:id="newFilmProductionName" layoutX="14.0" layoutY="43.0" promptText="Nome" />
+                              <TextField fx:id="newFilmProductionNation" layoutX="14.0" layoutY="78.0" promptText="Nazione" />
+                              <Button layoutX="14.0" layoutY="120.0" mnemonicParsing="false" onAction="#clickOnAddFilmProduction" text="Aggiungi Produzione" />
                            </children>
                         </AnchorPane>
                      </content>
                   </Tab>
-                <Tab text="Film e Serie TV">
+                <Tab onSelectionChanged="#openObjectTab" text="Film e Serie TV">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
@@ -123,35 +123,35 @@
                                     <TableColumn fx:id="trama" prefWidth="299.0" text="Trama" />
                                 </columns>
                               </TableView>
-                              <TextField layoutX="14.0" layoutY="43.0" promptText="Titolo" />
-                              <TextField layoutX="14.0" layoutY="78.0" promptText="Anno" />
-                              <Button layoutX="14.0" layoutY="260.0" mnemonicParsing="false" text="Aggiungi Film" />
+                              <TextField fx:id="newTitleObject" layoutX="14.0" layoutY="43.0" promptText="Titolo" />
+                              <TextField fx:id="newYearObject" layoutX="14.0" layoutY="78.0" promptText="Anno" />
+                              <Button layoutX="14.0" layoutY="260.0" mnemonicParsing="false" onAction="#clickOnAddObject" text="Aggiungi Film" />
                               <Separator layoutY="292.0" prefHeight="5.0" prefWidth="239.0" />
                               <TextField fx:id="newReferenceFrom" layoutX="14.0" layoutY="314.0" promptText="Riferimento da...(ID)" />
                               <TextField fx:id="newReferenceTo" layoutX="14.0" layoutY="346.0" promptText="Riferimento a...(ID)" />
                               <TextField fx:id="newReferenceType" layoutX="14.0" layoutY="382.0" promptText="Tipo di connessione" />
                               <Button layoutX="14.0" layoutY="421.0" mnemonicParsing="false" onAction="#clickOnAddReference" text="Aggiungi Connessione" />
-                              <TextArea layoutX="14.0" layoutY="182.0" prefHeight="69.0" prefWidth="186.0" promptText="Trama" />
-                              <TextField layoutX="14.0" layoutY="112.0" promptText="ID Produzione" />
-                              <TableView layoutX="249.0" layoutY="322.0" prefHeight="148.0" prefWidth="228.0">
+                              <TextArea fx:id="newBio" layoutX="14.0" layoutY="182.0" prefHeight="69.0" prefWidth="186.0" promptText="Trama" />
+                              <TextField fx:id="addProduction" layoutX="14.0" layoutY="112.0" promptText="ID Produzione" />
+                              <TableView fx:id="tableProduction2" layoutX="249.0" layoutY="322.0" prefHeight="148.0" prefWidth="228.0">
                                 <columns>
-                                  <TableColumn prefWidth="75.0" text="ID" />
-                                  <TableColumn prefWidth="151.0" text="Nome Produzione" />
+                                  <TableColumn fx:id="idFilmProduction2" prefWidth="75.0" text="ID" />
+                                  <TableColumn fx:id="nameFilmProduction2" prefWidth="151.0" text="Nome Produzione" />
                                 </columns>
                               </TableView>
-                              <TableView layoutX="509.0" layoutY="322.0" prefHeight="148.0" prefWidth="370.0">
+                              <TableView fx:id="tableCast2" layoutX="509.0" layoutY="322.0" prefHeight="148.0" prefWidth="370.0">
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="ID" />
-                                    <TableColumn prefWidth="151.0" text="Nome" />
-                                    <TableColumn prefWidth="151.0" text="Cognome" />
+                                    <TableColumn fx:id="idCast2" prefWidth="75.0" text="ID" />
+                                    <TableColumn fx:id="nameCast2" prefWidth="151.0" text="Nome" />
+                                    <TableColumn fx:id="surnameCast2" prefWidth="151.0" text="Cognome" />
                                  </columns>
                               </TableView>
-                              <TextField layoutX="14.0" layoutY="146.0" promptText="ID Regista" />
+                              <TextField fx:id="addDirector" layoutX="14.0" layoutY="146.0" promptText="ID Regista" />
                            </children>
                         </AnchorPane>
                      </content>
                 </Tab>
-                  <Tab text="Colonne Sonore">
+                  <Tab onSelectionChanged="#openMusicTab" text="Colonne Sonore">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
@@ -182,7 +182,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Ruoli">
+                  <Tab onSelectionChanged="#openRoleTab" text="Ruoli">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
@@ -197,7 +197,7 @@
                               <TextField fx:id="newFilmRoleFilmId" layoutX="14.0" layoutY="78.0" promptText="ID Film" />
                               <Button layoutX="14.0" layoutY="185.0" mnemonicParsing="false" onAction="#clickOnFilmRoleMenuItem" text="Aggiungi" />
                               <Separator layoutY="229.0" prefHeight="5.0" prefWidth="239.0" />
-                              <TextField fx:id="newMusicRoleCastId" layoutX="15.0" layoutY="256.0" promptText="ID Musicista" />
+                              <TextField fx:id="newMusicRoleIdCast" layoutX="15.0" layoutY="256.0" promptText="ID Musicista" />
                               <TextField fx:id="newMusicRoleIdMusic" layoutX="14.0" layoutY="290.0" promptText="ID Colonna Sonora" />
                               <Button layoutX="14.0" layoutY="404.0" mnemonicParsing="false" onAction="#clickOnAddMusicRole" text="Aggiungi" />
                               <TableView layoutX="582.0" layoutY="35.0" prefHeight="223.0" prefWidth="284.0">
@@ -232,7 +232,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Premi">
+                  <Tab onSelectionChanged="#openAwardTab" text="Premi">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
@@ -283,7 +283,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Servizi di Streaming">
+                  <Tab onSelectionChanged="#openStreamingTab" text="Servizi di Streaming">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>

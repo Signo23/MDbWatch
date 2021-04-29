@@ -7,6 +7,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -26,19 +27,24 @@ import MDbWatch.Object.StreamingService;
 
 public class FXMLAdminController implements Initializable{
 	
-	@FXML TableView<Cast> tableCast;
+	@FXML TableView<Cast> tableCast, tableCast2;
 	@FXML TableView<OggettoValutazione> tableOggetti;
 	@FXML TableView<StreamingService> tableStreaming;
+	@FXML TableView<FilmProduction> tableProduction, tableProduction2;
 
-	@FXML TableColumn<Cast, String> idCastGen, castName, surname, birth, birthPlace;
+	@FXML TableColumn<Cast, String> idCastGen, castName, surname, birth, birthPlace, idCast2, nameCast2, surnameCast2;
 	@FXML TableColumn<OggettoValutazione, String> idOggetto, titolo, trama;
 	@FXML TableColumn<OggettoValutazione, Integer> anno;
 	@FXML TableColumn<StreamingService, String> streamingName, webSite;
+	@FXML TableColumn<FilmProduction, String> idFilmProduction, nameFilmProduction, nationFilmProduction, idFilmProduction2, nameFilmProduction2;
 	
 	@FXML MenuButton filmRole, musicRole;
 	
 	@FXML TextField newStreamingName, newWebSite, newCastName, newCastSurname, newCastbPlace, newCastbDay, newCastbMonth, newCastbYear,
-	 newReferenceTo, newReferenceFrom, newReferenceType, newFilmRoleFilmId, newFilmRoleCastId, newMusicRoleIdCast, newMusicRoleIdMusic;
+	 newReferenceTo, newReferenceFrom, newReferenceType, newFilmRoleFilmId, newFilmRoleCastId, newMusicRoleIdCast, newMusicRoleIdMusic,
+	 newFilmProductionName, newFilmProductionNation, newTitleObject, newYearObject, addDirector, addProduction;
+	
+	@FXML TextArea newBio;
 	
 	
 	List<Cast> cast;
@@ -52,28 +58,12 @@ public class FXMLAdminController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		this.castName.setCellValueFactory(new PropertyValueFactory<Cast, String>("name"));
-		this.surname.setCellValueFactory(new PropertyValueFactory<Cast, String>("surname"));
-		this.birth.setCellValueFactory(new PropertyValueFactory<Cast, String>("birth"));
-		this.idCastGen.setCellValueFactory(new PropertyValueFactory<Cast, String>("idCastGenerated"));
-		this.birthPlace.setCellValueFactory(new PropertyValueFactory<Cast, String>("birthPlace"));
 		
-		this.idOggetto.setCellValueFactory(new PropertyValueFactory<OggettoValutazione, String>("idOggetto"));
-		this.titolo.setCellValueFactory(new PropertyValueFactory<OggettoValutazione, String>("titolo"));
-		this.trama.setCellValueFactory(new PropertyValueFactory<OggettoValutazione, String>("trama"));
-		this.anno.setCellValueFactory(new PropertyValueFactory<OggettoValutazione, Integer>("anno"));
+		
 		
 		this.streamingName.setCellValueFactory(new PropertyValueFactory<StreamingService, String>("name"));
 		this.webSite.setCellValueFactory(new PropertyValueFactory<StreamingService, String>("webSite"));
 		
-		this.loadLists();
-		
-		this.tableCast.getItems().addAll(this.cast);
-		this.tableOggetti.getItems().addAll(this.ov);
-		this.tableStreaming.getItems().addAll(this.str);
-	}
-	
-	private void loadLists() {
 		this.cast = new ArrayList<>();
 		this.ov = new ArrayList<>();
 		this.str = new ArrayList<>();
@@ -82,6 +72,72 @@ public class FXMLAdminController implements Initializable{
 		this.mr = new ArrayList<>();
 		this.fp = new ArrayList<>();
 		this.music = new ArrayList<>();
+		
+		this.tableCast.getItems().addAll(this.cast);
+		this.tableOggetti.getItems().addAll(this.ov);
+		this.tableStreaming.getItems().addAll(this.str);
+		this.tableProduction.getItems().addAll(this.fp);
+	}
+	
+	public void openCastTab() {
+		this.castName.setCellValueFactory(new PropertyValueFactory<Cast, String>("name"));
+		this.surname.setCellValueFactory(new PropertyValueFactory<Cast, String>("surname"));
+		this.birth.setCellValueFactory(new PropertyValueFactory<Cast, String>("birth"));
+		this.idCastGen.setCellValueFactory(new PropertyValueFactory<Cast, String>("idCastGenerated"));
+		this.birthPlace.setCellValueFactory(new PropertyValueFactory<Cast, String>("birthPlace"));
+		
+		this.tableCast.getItems().clear();
+		this.tableCast.getItems().addAll(this.cast);
+	}
+	
+	public void openProductionTab() {
+		this.idFilmProduction.setCellValueFactory(new PropertyValueFactory<FilmProduction, String>("idProduction"));
+		this.nameFilmProduction.setCellValueFactory(new PropertyValueFactory<FilmProduction, String>("name"));
+		this.nationFilmProduction.setCellValueFactory(new PropertyValueFactory<FilmProduction, String>("nation"));
+		
+		this.tableProduction.getItems().clear();
+		this.tableProduction.getItems().addAll(this.fp);
+	}
+	
+	public void openObjectTab() {
+		this.idOggetto.setCellValueFactory(new PropertyValueFactory<OggettoValutazione, String>("idOggetto"));
+		this.titolo.setCellValueFactory(new PropertyValueFactory<OggettoValutazione, String>("titolo"));
+		this.trama.setCellValueFactory(new PropertyValueFactory<OggettoValutazione, String>("trama"));
+		this.anno.setCellValueFactory(new PropertyValueFactory<OggettoValutazione, Integer>("anno"));
+		
+		this.tableOggetti.getItems().clear();
+		this.tableOggetti.getItems().addAll(this.ov);
+		
+		
+		this.idFilmProduction2.setCellValueFactory(new PropertyValueFactory<FilmProduction, String>("idProduction"));
+		this.nameFilmProduction2.setCellValueFactory(new PropertyValueFactory<FilmProduction, String>("name"));
+		
+		this.tableProduction2.getItems().clear();
+		this.tableProduction2.getItems().addAll(this.fp);
+		
+		
+		this.nameCast2.setCellValueFactory(new PropertyValueFactory<Cast, String>("name"));
+		this.surnameCast2.setCellValueFactory(new PropertyValueFactory<Cast, String>("surname"));
+		this.idCast2.setCellValueFactory(new PropertyValueFactory<Cast, String>("idCastGenerated"));
+		
+		this.tableCast2.getItems().clear();
+		this.tableCast2.getItems().addAll(this.cast);
+	}
+	
+	public void openMusicTab() {
+		
+	}
+	
+	public void openRoleTab() {
+		
+	}
+	
+	public void openAwardTab() {
+		
+	}
+	
+	public void openStreamingTab() {
+		
 	}
 	
 	public void clickOnAddStreamingService() {
@@ -203,5 +259,36 @@ public class FXMLAdminController implements Initializable{
 	public void clickOnMusicRoleMenuItem(ActionEvent e) {
 		this.musicRole.setText(((MenuItem)e.getSource()).getText());
 	}
+	
+	public void clickOnAddFilmProduction() {
+		if(!(this.newFilmProductionName.getText().isBlank() && this.newFilmProductionNation.getText().isBlank())) {
+			this.fp.add(new FilmProduction ("0000", this.newFilmProductionName.getText(), this.newFilmProductionNation.getText()));
+			this.newFilmProductionName.clear();
+			this.newFilmProductionNation.clear();
+			this.tableProduction.getItems().clear();
+			this.tableProduction.getItems().addAll(this.fp);
+		}
+	}
 
+	public void clickOnAddObject() {
+		if(!(this.newTitleObject.getText().isBlank() || this.newYearObject.getText().isBlank() || this.addDirector.getText().isBlank()
+				|| this.addProduction.getText().isBlank() || this.newBio.getText().isBlank())) {
+			if(this.isIdInCast(this.addDirector.getText()) && this.isIdInProduction(this.addProduction.getText())
+					&& Integer.parseInt(this.newYearObject.getText()) >= 1900) {
+				this.ov.add(new OggettoValutazione("000", this.newTitleObject.getText(), this.newBio.getText(),
+						Integer.parseInt(this.newYearObject.getText()), this.addDirector.getText(), this.addProduction.getText()));
+				this.tableOggetti.getItems().clear();
+				this.tableOggetti.getItems().addAll(this.ov);
+			}
+		}
+	}
+
+	private boolean isIdInProduction(String text) {
+		for(final FilmProduction f : this.fp) {
+			if(f.getIdProduction().equals(text)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
