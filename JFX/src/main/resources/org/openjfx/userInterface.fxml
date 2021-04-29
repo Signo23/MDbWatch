@@ -37,6 +37,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -78,12 +79,14 @@
                 <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
               </textFill>
             </Label>
-                  <TableView layoutX="173.0" layoutY="60.0" prefHeight="471.0" prefWidth="552.0">
+                  <TableView layoutX="14.0" layoutY="59.0" prefHeight="471.0" prefWidth="869.0">
                     <columns>
-                      <TableColumn prefWidth="355.0" text="Titolo" />
-                      <TableColumn minWidth="0.0" prefWidth="196.0" text="Streaming" />
+                      <TableColumn prefWidth="594.0" text="Titolo" />
+                        <TableColumn prefWidth="55.0" text="Voto" />
+                      <TableColumn minWidth="0.0" prefWidth="219.0" text="Streaming" />
                     </columns>
                   </TableView>
+                  <Separator layoutX="15.0" layoutY="40.0" prefHeight="0.0" prefWidth="869.0" />
           </children>
         </AnchorPane>
       </items>
