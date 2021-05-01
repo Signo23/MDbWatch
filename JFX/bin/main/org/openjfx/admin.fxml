@@ -155,27 +155,25 @@
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <TableView layoutX="326.0" layoutY="36.0" prefHeight="201.0" prefWidth="371.0">
+                              <TableView fx:id="tableMusic" layoutX="326.0" layoutY="36.0" prefHeight="201.0" prefWidth="371.0">
                                  <columns>
-                                    <TableColumn prefWidth="35.0" text="ID" />
-                                    <TableColumn prefWidth="216.0" text="Titolo" />
-                                    <TableColumn prefWidth="119.0" text="Durata" />
+                                    <TableColumn fx:id="idMusic" prefWidth="53.0" text="ID" />
+                                    <TableColumn fx:id="titleMusic" prefWidth="198.0" text="Titolo" />
+                                    <TableColumn fx:id="durationMusic" prefWidth="119.0" text="Durata" />
                                  </columns>
                               </TableView>
-                              <TextField layoutX="14.0" layoutY="43.0" promptText="Titolo" />
-                              <TextField layoutX="14.0" layoutY="78.0" promptText="Anno" />
-                              <TextField layoutX="14.0" layoutY="114.0" promptText="Durata" />
-                              <Button layoutX="14.0" layoutY="183.0" mnemonicParsing="false" text="Aggiungi Colonna Sonora" />
-                              <Separator layoutY="231.0" prefHeight="5.0" prefWidth="239.0" />
-                              <TextField layoutX="14.0" layoutY="249.0" promptText="ID Prodotto" />
-                              <TextField layoutX="14.0" layoutY="287.0" promptText="ID Colonna Sonora" />
-                              <Button layoutX="14.0" layoutY="330.0" mnemonicParsing="false" text="Aggiungi" />
-                              <TextField layoutX="15.0" layoutY="148.0" promptText="ID Film" />
-                              <TableView layoutX="326.0" layoutY="263.0" prefHeight="200.0" prefWidth="370.0">
+                              <TextField fx:id="newMusicTitle" layoutX="14.0" layoutY="43.0" promptText="Titolo" />
+                              <TextField fx:id="newMusicDuration" layoutX="14.0" layoutY="75.0" promptText="Durata" />
+                              <Button layoutX="14.0" layoutY="144.0" mnemonicParsing="false" onAction="#clickOnAddMusic" text="Aggiungi Colonna Sonora" />
+                              <Separator layoutY="192.0" prefHeight="5.0" prefWidth="239.0" />
+                              <TextField layoutX="14.0" layoutY="210.0" promptText="ID Prodotto" />
+                              <TextField layoutX="14.0" layoutY="248.0" promptText="ID Colonna Sonora" />
+                              <Button layoutX="14.0" layoutY="291.0" mnemonicParsing="false" text="Aggiungi" />
+                              <TextField fx:id="addMusicObject" layoutX="15.0" layoutY="109.0" promptText="ID Film" />
+                              <TableView fx:id="tableObjectMusic" layoutX="326.0" layoutY="263.0" prefHeight="200.0" prefWidth="370.0">
                                 <columns>
-                                  <TableColumn prefWidth="35.0" text="ID" />
-                                  <TableColumn prefWidth="191.0" text="Nome" />
-                                    <TableColumn prefWidth="143.0" text="Cognome" />
+                                  <TableColumn fx:id="idObjectMusic" prefWidth="61.0" text="ID" />
+                                  <TableColumn fx:id="titleObjectMusic" prefWidth="307.0" text="Titolo" />
                                 </columns>
                               </TableView>
                            </children>

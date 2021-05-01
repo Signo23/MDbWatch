@@ -5,6 +5,7 @@ public class Music {
 	private String idMusic;
 	private String title;
 	private String duration;
+	
 	public Music(String idMusic, String title, String duration) {
 		super();
 		this.idMusic = idMusic;

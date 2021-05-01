@@ -20,6 +20,7 @@ import MDbWatch.Object.Cast;
 import MDbWatch.Object.FilmProduction;
 import MDbWatch.Object.FilmRole;
 import MDbWatch.Object.Music;
+import MDbWatch.Object.MusicInObject;
 import MDbWatch.Object.MusicRole;
 import MDbWatch.Object.OggettoValutazione;
 import MDbWatch.Object.Reference;
@@ -28,21 +29,25 @@ import MDbWatch.Object.StreamingService;
 public class FXMLAdminController implements Initializable{
 	
 	@FXML TableView<Cast> tableCast, tableCast2;
-	@FXML TableView<OggettoValutazione> tableOggetti;
+	@FXML TableView<OggettoValutazione> tableOggetti, tableObjectMusic;
 	@FXML TableView<StreamingService> tableStreaming;
 	@FXML TableView<FilmProduction> tableProduction, tableProduction2;
+	@FXML TableView<Music> tableMusic;
 
 	@FXML TableColumn<Cast, String> idCastGen, castName, surname, birth, birthPlace, idCast2, nameCast2, surnameCast2;
-	@FXML TableColumn<OggettoValutazione, String> idOggetto, titolo, trama;
+	@FXML TableColumn<OggettoValutazione, String> idOggetto, titolo, trama, idObjectMusic, titleObjectMusic;
 	@FXML TableColumn<OggettoValutazione, Integer> anno;
 	@FXML TableColumn<StreamingService, String> streamingName, webSite;
 	@FXML TableColumn<FilmProduction, String> idFilmProduction, nameFilmProduction, nationFilmProduction, idFilmProduction2, nameFilmProduction2;
+	@FXML TableColumn<Music, String> idMusic, titleMusic, durationMusic;
 	
 	@FXML MenuButton filmRole, musicRole;
 	
 	@FXML TextField newStreamingName, newWebSite, newCastName, newCastSurname, newCastbPlace, newCastbDay, newCastbMonth, newCastbYear,
 	 newReferenceTo, newReferenceFrom, newReferenceType, newFilmRoleFilmId, newFilmRoleCastId, newMusicRoleIdCast, newMusicRoleIdMusic,
-	 newFilmProductionName, newFilmProductionNation, newTitleObject, newYearObject, addDirector, addProduction;
+	 newFilmProductionName, newFilmProductionNation, newTitleObject, newYearObject, addDirector, addProduction, newMusicTitle,
+	 newMusicDuration, addMusicObject;
+	
 	
 	@FXML TextArea newBio;
 	
@@ -55,6 +60,7 @@ public class FXMLAdminController implements Initializable{
 	List<MusicRole> mr;
 	List<FilmProduction> fp;
 	List<Music> music;
+	List<MusicInObject> mIo;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -72,6 +78,7 @@ public class FXMLAdminController implements Initializable{
 		this.mr = new ArrayList<>();
 		this.fp = new ArrayList<>();
 		this.music = new ArrayList<>();
+		this.mIo = new ArrayList<>();
 		
 		this.tableCast.getItems().addAll(this.cast);
 		this.tableOggetti.getItems().addAll(this.ov);
@@ -125,7 +132,18 @@ public class FXMLAdminController implements Initializable{
 	}
 	
 	public void openMusicTab() {
+		this.idMusic.setCellValueFactory(new PropertyValueFactory<Music, String>("idMusic"));
+		this.titleMusic.setCellValueFactory(new PropertyValueFactory<Music, String>("title"));
+		this.durationMusic.setCellValueFactory(new PropertyValueFactory<Music, String>("duration"));
 		
+		this.tableMusic.getItems().clear();
+		this.tableMusic.getItems().addAll(this.music);
+		
+		this.idObjectMusic.setCellValueFactory(new PropertyValueFactory<OggettoValutazione, String>("idOggetto"));
+		this.titleObjectMusic.setCellValueFactory(new PropertyValueFactory<OggettoValutazione, String>("titolo"));
+		
+		this.tableObjectMusic.getItems().clear();
+		this.tableObjectMusic.getItems().addAll(this.ov);
 	}
 	
 	public void openRoleTab() {
@@ -265,6 +283,7 @@ public class FXMLAdminController implements Initializable{
 			this.fp.add(new FilmProduction ("0000", this.newFilmProductionName.getText(), this.newFilmProductionNation.getText()));
 			this.newFilmProductionName.clear();
 			this.newFilmProductionNation.clear();
+			
 			this.tableProduction.getItems().clear();
 			this.tableProduction.getItems().addAll(this.fp);
 		}
@@ -290,5 +309,20 @@ public class FXMLAdminController implements Initializable{
 			}
 		}
 		return false;
+	}
+	
+	public void clickOnAddMusic() {
+		if(!(this.newMusicTitle.getText().isBlank() || this.newMusicDuration.getText().isBlank() || this.addMusicObject.getText().isBlank())) {
+			if(this.isIdInObject(this.addMusicObject.getText())) {
+				this.music.add(new Music("0000", this.newMusicTitle.getText(), this.newMusicDuration.getText()));
+				this.mIo.add(new MusicInObject(this.addMusicObject.getText(), this.music.get(this.music.size() - 1).getIdMusic()));
+				this.newMusicDuration.clear();
+				this.newMusicTitle.clear();
+				this.addMusicObject.clear();
+				
+				this.tableMusic.getItems().clear();
+				this.tableMusic.getItems().addAll(this.music);
+			}
+		}
 	}
 }
