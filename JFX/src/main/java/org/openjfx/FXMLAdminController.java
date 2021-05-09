@@ -28,18 +28,19 @@ import MDbWatch.Object.StreamingService;
 
 public class FXMLAdminController implements Initializable{
 	
-	@FXML TableView<Cast> tableCast, tableCast2;
-	@FXML TableView<OggettoValutazione> tableOggetti, tableObjectMusic;
+	@FXML TableView<Cast> tableCast, tableCast2, tableCastRole;
+	@FXML TableView<OggettoValutazione> tableOggetti, tableObjectMusic, tableOjectRole;
 	@FXML TableView<StreamingService> tableStreaming;
 	@FXML TableView<FilmProduction> tableProduction, tableProduction2;
-	@FXML TableView<Music> tableMusic;
+	@FXML TableView<Music> tableMusic, tableMusicRole;
 
-	@FXML TableColumn<Cast, String> idCastGen, castName, surname, birth, birthPlace, idCast2, nameCast2, surnameCast2;
-	@FXML TableColumn<OggettoValutazione, String> idOggetto, titolo, trama, idObjectMusic, titleObjectMusic;
+	@FXML TableColumn<Cast, String> idCastGen, castName, surname, birth, birthPlace, idCast2, nameCast2, surnameCast2,
+		idCastRole, nameCastRole, surnameCastRole;
+	@FXML TableColumn<OggettoValutazione, String> idOggetto, titolo, trama, idObjectMusic, titleObjectMusic, idObjectRole, titleObjectRole;
 	@FXML TableColumn<OggettoValutazione, Integer> anno;
 	@FXML TableColumn<StreamingService, String> streamingName, webSite;
 	@FXML TableColumn<FilmProduction, String> idFilmProduction, nameFilmProduction, nationFilmProduction, idFilmProduction2, nameFilmProduction2;
-	@FXML TableColumn<Music, String> idMusic, titleMusic, durationMusic;
+	@FXML TableColumn<Music, String> idMusic, titleMusic, durationMusic, idMusicRole, titleMusicRole;
 	
 	@FXML MenuButton filmRole, musicRole;
 	
@@ -147,7 +148,21 @@ public class FXMLAdminController implements Initializable{
 	}
 	
 	public void openRoleTab() {
+		this.idCastRole.setCellValueFactory(new PropertyValueFactory<Cast, String>("idCastGenerated"));
+		this.nameCastRole.setCellValueFactory(new PropertyValueFactory<Cast, String>("name"));
+		this.surnameCastRole.setCellValueFactory(new PropertyValueFactory<Cast, String>("surname"));
+		this.tableCastRole.getItems().clear();
+		this.tableCastRole.getItems().addAll(this.cast);
 		
+		this.idMusicRole.setCellValueFactory(new PropertyValueFactory<Music, String>("idMusic"));
+		this.titleMusicRole.setCellValueFactory(new PropertyValueFactory<Music, String>("title"));
+		this.tableMusicRole.getItems().clear();
+		this.tableMusicRole.getItems().addAll(this.music);
+		
+		this.idObjectRole.setCellValueFactory(new PropertyValueFactory<OggettoValutazione, String>("idOggetto"));
+		this.idObjectRole.setCellValueFactory(new PropertyValueFactory<OggettoValutazione, String>("titolo"));
+		this.tableOjectRole.getItems().clear();
+		this.tableOjectRole.getItems().addAll(this.ov);
 	}
 	
 	public void openAwardTab() {

@@ -1,6 +1,6 @@
 plugins {
-  id 'application'
-  id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
 repositories {
@@ -8,7 +8,9 @@ repositories {
 }
 
 dependencies {
-	testImplementation 'junit:junit:4.12'
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:linux"
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:mac"
 }
 
 javafx {
@@ -16,22 +18,15 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
-run {
-    if (javafx.platform.classifier == 'win') {
-        // Temporal fix for Eclipse with JDK 1.8 and Windows 
-        systemProperty "java.library.path", "C:\tmp"
-    }
-}
-
 mainClassName = 'org.openjfx.MainApp'
 
 jar {
 	manifest {
-		attributes 'Main-Class' : "$mainClassName"
+		attributes 'Main-Class' : 'org.openjfx.MainApp'
 	}
 	from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
+		configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+	}
 }
 
 task runJar(type: JavaExec) {

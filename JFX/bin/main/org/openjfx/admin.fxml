@@ -184,11 +184,11 @@
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <TableView layoutX="249.0" layoutY="36.0" prefHeight="222.0" prefWidth="315.0">
+                              <TableView fx:id="tableCastRole" layoutX="249.0" layoutY="36.0" prefHeight="222.0" prefWidth="315.0">
                                  <columns>
-                                    <TableColumn prefWidth="60.0" text="ID" />
-                                    <TableColumn prefWidth="132.0" text="Nome" />
-                                    <TableColumn prefWidth="122.0" text="Cognome" />
+                                    <TableColumn fx:id="idCastRole" prefWidth="60.0" text="ID" />
+                                    <TableColumn fx:id="nameCastRole" prefWidth="132.0" text="Nome" />
+                                    <TableColumn fx:id="surnameCastRole" prefWidth="122.0" text="Cognome" />
                                  </columns>
                               </TableView>
                               <TextField fx:id="newFilmRoleCastId" layoutX="14.0" layoutY="43.0" promptText="ID Personaggio" />
@@ -198,10 +198,10 @@
                               <TextField fx:id="newMusicRoleIdCast" layoutX="15.0" layoutY="256.0" promptText="ID Musicista" />
                               <TextField fx:id="newMusicRoleIdMusic" layoutX="14.0" layoutY="290.0" promptText="ID Colonna Sonora" />
                               <Button layoutX="14.0" layoutY="404.0" mnemonicParsing="false" onAction="#clickOnAddMusicRole" text="Aggiungi" />
-                              <TableView layoutX="582.0" layoutY="35.0" prefHeight="223.0" prefWidth="284.0">
+                              <TableView fx:id="tableMusicRole" layoutX="582.0" layoutY="35.0" prefHeight="223.0" prefWidth="284.0">
                                 <columns>
-                                  <TableColumn prefWidth="75.0" text="ID" />
-                                  <TableColumn prefWidth="210.0" text="Titolo Colonna Sonora" />
+                                  <TableColumn fx:id="idMusicRole" prefWidth="75.0" text="ID" />
+                                  <TableColumn fx:id="titleMusicRole" prefWidth="210.0" text="Titolo Colonna Sonora" />
                                 </columns>
                               </TableView>
                               <MenuButton fx:id="filmRole" layoutX="17.0" layoutY="134.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0">
@@ -218,10 +218,10 @@
                                     <MenuItem mnemonicParsing="false" onAction="#clickOnMusicRoleMenuItem" />
                                  </items>
                               </MenuButton>
-                              <TableView layoutX="251.0" layoutY="269.0" prefHeight="200.0" prefWidth="314.0">
+                              <TableView fx:id="tableOjectRole" layoutX="251.0" layoutY="269.0" prefHeight="200.0" prefWidth="314.0">
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="ID" />
-                                    <TableColumn prefWidth="238.0" text="Titolo" />
+                                    <TableColumn fx:id="idObjectRole" prefWidth="75.0" text="ID" />
+                                    <TableColumn fx:id="titleObjectRole" prefWidth="238.0" text="Titolo" />
                                  </columns>
                               </TableView>
                               <Label layoutX="17.0" layoutY="110.0" text="Ruolo:" />
