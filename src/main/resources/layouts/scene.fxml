@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="mdbwatch.controller.FirstStageController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER" />
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label alignment="CENTER" layoutX="209.0" layoutY="148.0" style="&#10;" text="In che modo vuoi accedere?" textAlignment="CENTER"
+         textFill="#9f9f9f" wrapText="false">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+            <Button fx:id="admin" layoutX="209.0" layoutY="200.0" mnemonicParsing="false" onAction="#clickOn" text="Amministratore" />
+            <Button fx:id="user" layoutX="209.0" layoutY="233.0" mnemonicParsing="false" onAction="#clickOn" text="Utente" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
