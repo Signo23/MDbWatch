@@ -1,0 +1,30 @@
+mdbwatch/model/MusicRole.java
+ mdbwatch.model.MusicRole
+mdbwatch/controller/UserController.java
+ mdbwatch.controller.UserController
+mdbwatch/controller/FirstStageController.java
+ mdbwatch.controller.FirstStageController
+mdbwatch/model/StreamingService.java
+ mdbwatch.model.StreamingService
+mdbwatch/model/CineMusic.java
+ mdbwatch.model.CineMusic
+mdbwatch/controller/SignLogInController.java
+ mdbwatch.controller.SignLogInController
+mdbwatch/Launcher.java
+ mdbwatch.Launcher
+mdbwatch/model/Reference.java
+ mdbwatch.model.Reference
+mdbwatch/model/CineRole.java
+ mdbwatch.model.CineRole
+mdbwatch/App.java
+ mdbwatch.App
+mdbwatch/model/Music.java
+ mdbwatch.model.Music
+mdbwatch/model/Production.java
+ mdbwatch.model.Production
+mdbwatch/model/ValutationObj.java
+ mdbwatch.model.ValutationObj
+mdbwatch/controller/AdminController.java
+ mdbwatch.controller.AdminController
+mdbwatch/model/Cast.java
+ mdbwatch.model.Cast
