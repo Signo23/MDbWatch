@@ -5,10 +5,10 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -16,11 +16,11 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mdbwatch.controller.UserController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mdbwatch.controller.HomeController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
-        <Menu mnemonicParsing="false" text="Cerca">
+        <Menu mnemonicParsing="false" text="Visualizza">
           <items>
             <MenuItem mnemonicParsing="false" text="Film" />
             <MenuItem mnemonicParsing="false" text="Personaggio dello spettacolo" />
@@ -30,31 +30,38 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Opzioni">
           <items>
-            <MenuItem mnemonicParsing="false" text="Servizi Streaming" />
+            <MenuItem fx:id="streamingService" mnemonicParsing="false" onAction="#actionOnMenuItem" text="Servizi Streaming" />
           </items>
         </Menu>
       </menus>
     </MenuBar>
     <SplitPane focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <items>
-        <AnchorPane>
+        <AnchorPane fx:id="root">
           <children>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Potresti dare un occhiata a..." textAlignment="CENTER" wrapText="false">
+            <Label fx:id="label" alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefHeight="187.0" prefWidth="556.0" style="&#10;" text="Ciao, #USERNAME#" textAlignment="CENTER" textOverrun="CLIP" wrapText="false">
               <font>
-                <Font size="18.0" fx:id="x1" />
+                <Font name="Calibri" size="61.0" fx:id="x1" />
               </font>
               <textFill>
                 <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
               </textFill>
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color opacity="0.45652174949645996" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
             </Label>
-                  <TableView layoutX="14.0" layoutY="59.0" prefHeight="471.0" prefWidth="869.0">
-                    <columns>
-                      <TableColumn prefWidth="594.0" text="Titolo" />
-                        <TableColumn prefWidth="55.0" text="Voto" />
-                      <TableColumn minWidth="0.0" prefWidth="219.0" text="Streaming" />
-                    </columns>
-                  </TableView>
-                  <Separator layoutX="15.0" layoutY="40.0" prefHeight="0.0" prefWidth="869.0" />
+                  <TextField blendMode="MULTIPLY" cache="true" layoutX="314.0" layoutY="254.0" promptText="Cerca qualcosa...">
+                     <font>
+                        <Font name="Calibri Light" size="23.0" />
+                     </font>
+                     <effect>
+                        <Reflection />
+                     </effect>
+                  </TextField>
           </children>
         </AnchorPane>
       </items>
