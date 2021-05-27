@@ -30,10 +30,12 @@ public class HomeController {
 	@FXML
 	public void actionOnMenuItem (final ActionEvent e) {
 		 try {
-	            Parent newParent;
 	            if (e.getSource().equals(this.streamingService)) {
-	                newParent = FXMLLoader.load(ClassLoader.getSystemResource("layouts/streamingSettings.fxml"));
-	                this.changer.loadNewStage(newParent);
+	            	FXMLLoader loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/streamingSettings.fxml"));
+	            	loader.setControllerFactory(c -> {
+	            		return new StreamingSettingsController(this.username ,this.changer);
+	            	});
+	                this.changer.loadNewStage(loader.load());
 	                }
 //	            final Scene scene = new Scene(root);
 //	            stage.setScene(scene);

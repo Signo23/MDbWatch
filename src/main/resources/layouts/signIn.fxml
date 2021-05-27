@@ -21,6 +21,7 @@
             <Button layoutX="544.0" layoutY="351.0" mnemonicParsing="false" onAction="#signIn" text="Procedi" />
             <Button layoutX="25.0" layoutY="351.0" mnemonicParsing="false" onAction="#back" text="Indietro" />
             <PasswordField fx:id="password" layoutX="51.0" layoutY="175.0" promptText="Password" />
+            <Label fx:id="errorLabel" layoutX="54.0" layoutY="212.0" textFill="RED" />
       </children>
     </AnchorPane>
   </children>

@@ -1,35 +1,41 @@
+mdbwatch/controller/StreamingSettingsController.java
+ mdbwatch.controller.StreamingSettingsController
 mdbwatch/model/Production.java
  mdbwatch.model.Production
 mdbwatch/model/ValutationObj.java
  mdbwatch.model.ValutationObj
 mdbwatch/App.java
  mdbwatch.App
-mdbwatch/model/CineRole.java
- mdbwatch.model.CineRole
+mdbwatch/controller/FirstStageController.java
+ mdbwatch.controller.FirstStageController
+mdbwatch/controller/HomeController.java
+ mdbwatch.controller.HomeController
+mdbwatch/model/CineMusic.java
+ mdbwatch.model.CineMusic
+mdbwatch/model/Cast.java
+ mdbwatch.model.Cast
 mdbwatch/model/Reference.java
  mdbwatch.model.Reference
+mdbwatch/common/ViewChanger.java
+ mdbwatch.common.ViewChanger
 mdbwatch/model/Music.java
  mdbwatch.model.Music
 mdbwatch/model/MusicRole.java
  mdbwatch.model.MusicRole
-mdbwatch/common/ViewChanger.java
- mdbwatch.common.ViewChanger
+mdbwatch/sql/SqlInitQuery.java
+ mdbwatch.sql.SqlInitQuery
 mdbwatch/controller/AdminController.java
  mdbwatch.controller.AdminController
-mdbwatch/model/CineMusic.java
- mdbwatch.model.CineMusic
+mdbwatch/model/CineRole.java
+ mdbwatch.model.CineRole
+mdbwatch/sql/DBConnection.java
+ mdbwatch.sql.DBConnection
 mdbwatch/model/StreamingService.java
  mdbwatch.model.StreamingService
-mdbwatch/model/Cast.java
- mdbwatch.model.Cast
 mdbwatch/sql/SqlQuery.java
  mdbwatch.sql.SqlQuery
-mdbwatch/controller/HomeController.java
- mdbwatch.controller.HomeController
 mdbwatch/controller/SignInController.java
  mdbwatch.controller.SignInController
-mdbwatch/controller/FirstStageController.java
- mdbwatch.controller.FirstStageController
 mdbwatch/Launcher.java
  mdbwatch.Launcher
 mdbwatch/controller/LogInController.java

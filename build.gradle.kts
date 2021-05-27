@@ -38,6 +38,8 @@ dependencies {
     // Example library: Guava. Add what you need (and remove Guava if you don't use it)
     // implementation("com.google.guava:guava:28.1-jre")
     implementation ("com.google.code.gson:gson:2.8.6")
+    
+    implementation ("mysql:mysql-connector-java:8.0.11")
 
     // JavaFX: comment out if you do not need them
     for (platform in supportedPlatforms) {
