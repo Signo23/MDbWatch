@@ -5,8 +5,11 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import mdbwatch.common.ViewChanger;
 import mdbwatch.sql.SqlQuery;
 
@@ -16,6 +19,7 @@ public class LogInController {
 	private Parent root;
     @FXML TextField username;
     @FXML PasswordField password;
+    @FXML Label error;
     
     public LogInController(final ViewChanger vc) {
     	this.changer = vc;
@@ -29,6 +33,8 @@ public class LogInController {
         	});
             root = loader.load();
             this.changer.loadNewStage(root);
+    	} else {
+    		this.error.setText("Nome utente o password errati");
     	}
     }
     
@@ -40,4 +46,16 @@ public class LogInController {
         root = loader.load();
         this.changer.loadNewStage(root);
 	}
+    
+    @FXML void toPasswordField(KeyEvent k) {
+    	if(k.getCode().equals(KeyCode.ENTER)) {
+    		this.password.requestFocus();
+    	}
+    }
+    
+    @FXML void enterLogIn(KeyEvent k) throws IOException {
+        if (k.getCode().equals(KeyCode.ENTER)) {
+            logIn();
+        }
+    }
 }

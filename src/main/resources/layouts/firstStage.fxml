@@ -10,12 +10,12 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label fx:id="label" alignment="CENTER" layoutX="290.0" layoutY="109.0" style="&#10;" text="Sei un..." textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+        <Label alignment="CENTER" layoutX="290.0" layoutY="109.0" style="&#10;" text="Sei un..." textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
           <font>
             <Font size="18.0" />
           </font>
         </Label>
-            <Button fx:id="signIn" layoutX="199.0" layoutY="200.0" mnemonicParsing="false" onAction="#clickOn" text="Nuovo Utente" />
+            <Button layoutX="199.0" layoutY="200.0" mnemonicParsing="false" onAction="#clickOn" text="Nuovo Utente" />
             <Button fx:id="logIn" layoutX="351.0" layoutY="200.0" mnemonicParsing="false" onAction="#clickOn" text="Utente registrato" />
       </children>
     </AnchorPane>

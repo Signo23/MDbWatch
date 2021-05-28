@@ -22,11 +22,11 @@
       <menus>
         <Menu mnemonicParsing="false" text="Visualizza">
           <items>
-            <MenuItem mnemonicParsing="false" text="Watchlist" />
-            <MenuItem mnemonicParsing="false" text="Disponibili sui tuoi servizi" />
+            <MenuItem fx:id="watchlist" mnemonicParsing="false" text="Watchlist" onAction="#actionOnMenuItem"/>
+            <MenuItem mnemonicParsing="false" text="Disponibili sui tuoi servizi" onAction="#actionOnMenuItem"/>
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Opzioni">
+        <Menu fx:id="option" mnemonicParsing="false" text="Opzioni">
           <items>
             <MenuItem fx:id="streamingService" mnemonicParsing="false" onAction="#actionOnMenuItem" text="Servizi Streaming" />
           </items>
@@ -35,7 +35,7 @@
     </MenuBar>
     <SplitPane focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <items>
-        <AnchorPane fx:id="root">
+        <AnchorPane>
           <children>
             <Label fx:id="label" alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefHeight="187.0" prefWidth="556.0" style="&#10;" text="Ciao, #USERNAME#" textAlignment="CENTER" textOverrun="CLIP" wrapText="false">
               <font>
@@ -52,7 +52,7 @@
                         </InnerShadow>
                      </effect>
             </Label>
-                  <TextField blendMode="MULTIPLY" cache="true" layoutX="314.0" layoutY="254.0" promptText="Cerca qualcosa...">
+                  <TextField fx:id="search" blendMode="MULTIPLY" cache="true" layoutX="314.0" layoutY="254.0" onKeyPressed="#searchEnter" promptText="Cerca qualcosa...">
                      <font>
                         <Font name="Calibri Light" size="23.0" />
                      </font>

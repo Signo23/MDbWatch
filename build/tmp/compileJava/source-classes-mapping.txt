@@ -1,42 +1,42 @@
 mdbwatch/controller/StreamingSettingsController.java
  mdbwatch.controller.StreamingSettingsController
-mdbwatch/model/Production.java
- mdbwatch.model.Production
 mdbwatch/model/ValutationObj.java
  mdbwatch.model.ValutationObj
-mdbwatch/App.java
- mdbwatch.App
-mdbwatch/controller/FirstStageController.java
- mdbwatch.controller.FirstStageController
-mdbwatch/controller/HomeController.java
- mdbwatch.controller.HomeController
-mdbwatch/model/CineMusic.java
- mdbwatch.model.CineMusic
-mdbwatch/model/Cast.java
- mdbwatch.model.Cast
-mdbwatch/model/Reference.java
- mdbwatch.model.Reference
-mdbwatch/common/ViewChanger.java
- mdbwatch.common.ViewChanger
-mdbwatch/model/Music.java
- mdbwatch.model.Music
-mdbwatch/model/MusicRole.java
- mdbwatch.model.MusicRole
-mdbwatch/sql/SqlInitQuery.java
- mdbwatch.sql.SqlInitQuery
-mdbwatch/controller/AdminController.java
- mdbwatch.controller.AdminController
-mdbwatch/model/CineRole.java
- mdbwatch.model.CineRole
-mdbwatch/sql/DBConnection.java
- mdbwatch.sql.DBConnection
-mdbwatch/model/StreamingService.java
- mdbwatch.model.StreamingService
 mdbwatch/sql/SqlQuery.java
  mdbwatch.sql.SqlQuery
-mdbwatch/controller/SignInController.java
- mdbwatch.controller.SignInController
+mdbwatch/model/SingleProduct.java
+ mdbwatch.model.SingleProduct
+mdbwatch/model/MusicInfo.java
+ mdbwatch.model.MusicInfo
+mdbwatch/controller/FirstStageController.java
+ mdbwatch.controller.FirstStageController
+mdbwatch/sql/PopulateDB.java
+ mdbwatch.sql.PopulateDB
+mdbwatch/controller/HomeController.java
+ mdbwatch.controller.HomeController
 mdbwatch/Launcher.java
  mdbwatch.Launcher
 mdbwatch/controller/LogInController.java
  mdbwatch.controller.LogInController
+mdbwatch/common/ViewChanger.java
+ mdbwatch.common.ViewChanger
+mdbwatch/model/Music.java
+ mdbwatch.model.Music
+mdbwatch/model/ProductInfo.java
+ mdbwatch.model.ProductInfo
+mdbwatch/sql/SqlInitQuery.java
+ mdbwatch.sql.SqlInitQuery
+mdbwatch/model/SerieTv.java
+ mdbwatch.model.SerieTv
+mdbwatch/sql/DBConnection.java
+ mdbwatch.sql.DBConnection
+mdbwatch/controller/SignInController.java
+ mdbwatch.controller.SignInController
+mdbwatch/model/StreamingService.java
+ mdbwatch.model.StreamingService
+mdbwatch/controller/SearchResultController.java
+ mdbwatch.controller.SearchResultController
+mdbwatch/App.java
+ mdbwatch.App
+mdbwatch/model/Product.java
+ mdbwatch.model.Product
