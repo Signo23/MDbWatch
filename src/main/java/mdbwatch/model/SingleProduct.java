@@ -1,6 +1,10 @@
 package mdbwatch.model;
 
-public class SingleProduct extends Product {
+public class SingleProduct implements Product {
+	
+	private int idProduct;
+	private String Title;
+	private String Plot;
 	private int year;
 	private String production;
 	private int idSerie;
@@ -8,6 +12,44 @@ public class SingleProduct extends Product {
 	private int season;
 	private int number;
 	
+	
+	
+	/**
+	 * @return the idProduct
+	 */
+	public int getIdProduct() {
+		return idProduct;
+	}
+	/**
+	 * @param idProduct the idProduct to set
+	 */
+	public void setIdProduct(int idProduct) {
+		this.idProduct = idProduct;
+	}
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return Title;
+	}
+	/**
+	 * @param title the title to set
+	 */
+	public void setTitle(String title) {
+		Title = title;
+	}
+	/**
+	 * @return the plot
+	 */
+	public String getPlot() {
+		return Plot;
+	}
+	/**
+	 * @param plot the plot to set
+	 */
+	public void setPlot(String plot) {
+		Plot = plot;
+	}
 	/**
 	 * @return the year
 	 */

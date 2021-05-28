@@ -16,14 +16,14 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mdbwatch.controller.HomeController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mdbwatch.controller.HomeController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="Visualizza">
           <items>
-            <MenuItem fx:id="watchlist" mnemonicParsing="false" text="Watchlist" onAction="#actionOnMenuItem"/>
-            <MenuItem mnemonicParsing="false" text="Disponibili sui tuoi servizi" onAction="#actionOnMenuItem"/>
+            <MenuItem fx:id="watchlist" mnemonicParsing="false" onAction="#actionOnMenuItem" text="Watchlist" />
+            <MenuItem mnemonicParsing="false" onAction="#actionOnMenuItem" text="Disponibili sui tuoi servizi" />
           </items>
         </Menu>
         <Menu fx:id="option" mnemonicParsing="false" text="Opzioni">
@@ -37,7 +37,7 @@
       <items>
         <AnchorPane>
           <children>
-            <Label fx:id="label" alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefHeight="187.0" prefWidth="556.0" style="&#10;" text="Ciao, #USERNAME#" textAlignment="CENTER" textOverrun="CLIP" wrapText="false">
+            <Label fx:id="label" alignment="CENTER" layoutX="41.0" layoutY="14.0" minWidth="60.0" prefHeight="187.0" prefWidth="556.0" style="&#10;" text="Ciao, #USERNAME#" textAlignment="CENTER" textOverrun="CLIP" wrapText="false">
               <font>
                 <Font name="Calibri" size="61.0" fx:id="x1" />
               </font>
@@ -52,7 +52,7 @@
                         </InnerShadow>
                      </effect>
             </Label>
-                  <TextField fx:id="search" blendMode="MULTIPLY" cache="true" layoutX="314.0" layoutY="254.0" onKeyPressed="#searchEnter" promptText="Cerca qualcosa...">
+                  <TextField fx:id="search" blendMode="MULTIPLY" cache="true" layoutX="184.0" layoutY="201.0" onKeyPressed="#searchEnter" promptText="Cerca qualcosa...">
                      <font>
                         <Font name="Calibri Light" size="23.0" />
                      </font>

@@ -293,6 +293,9 @@ values ('El Camino: il film di Breaking Bad', 'Il fuggitivo Jesse Pinkman fugge 
 insert into sceneggiature (idProdotto, idPersona)
 values (1,1);
 
+insert into disponibilitaprodotti
+(idProdotto, NomeServizio) values (1, 'Netflix');
+
 insert into colonne_sonore (Titolo)
 values ('I\'d Really Love to See You Tonight');
 

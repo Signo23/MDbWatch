@@ -44,12 +44,12 @@ public class HomeController {
 			} else if (e.getSource().equals(watchlist)) {
 				loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
 				loader.setControllerFactory(c -> {
-					return new SearchResultController("La tua Watchlist:", SqlQuery.getWatchlist(this.username));
+					return new SearchResultController(this.username, "La tua Watchlist:", SqlQuery.getWatchlist(this.username), this.changer);
 				});
 			} else {
 				FXMLLoader loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
 				loader.setControllerFactory(c -> {
-					return new SearchResultController("Sui tuoi servizi:", SqlQuery.getProductForUserService(this.username));
+					return new SearchResultController(this.username, "Sui tuoi servizi:", SqlQuery.getProductForUserService(this.username), this.changer);
 				});
 			}
 		this.changer.loadNewStage(loader.load());
@@ -58,7 +58,7 @@ public class HomeController {
 	@FXML void search () throws IOException {
 		loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
 		loader.setControllerFactory(c -> {
-			return new SearchResultController("Risultati ricerca:", SqlQuery.searchProductByTitle(this.search.getText()));
+			return new SearchResultController(this.username, "Risultati ricerca:", SqlQuery.searchProductByTitle(this.search.getText()), this.changer);
 		});
 		this.changer.loadNewStage(loader.load());
 	}
