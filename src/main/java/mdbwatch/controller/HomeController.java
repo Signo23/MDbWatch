@@ -6,13 +6,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import mdbwatch.common.ViewChanger;
-import mdbwatch.sql.SqlQuery;
+import mdbwatch.sql.SQLGet;
 
 public class HomeController {
 	
@@ -20,10 +19,9 @@ public class HomeController {
 	private ViewChanger changer;
 	private FXMLLoader loader;
 	
-	@FXML MenuItem streamingService, watchlist;
+	@FXML MenuItem streaming, watchlist;
 	@FXML Label label;
 	@FXML TextField search;
-	@FXML Menu option;
 	
 	public HomeController(final String username, final ViewChanger vc) {
 		this.username = username;
@@ -32,33 +30,27 @@ public class HomeController {
 
 	@FXML void initialize() {
 		this.label.setText("Ciao, " + this.username);
-		this.option.setVisible(false);
 	}
 
 	@FXML void actionOnMenuItem (final ActionEvent e) throws IOException {
-		if (e.getSource().equals(this.streamingService)) {
-			loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/streamingSettings.fxml"));
+		if (e.getSource().equals(this.watchlist)) {
+			loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
 			loader.setControllerFactory(c -> {
-				return new StreamingSettingsController(this.username ,this.changer);
-				});
-			} else if (e.getSource().equals(watchlist)) {
-				loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
-				loader.setControllerFactory(c -> {
-					return new SearchResultController(this.username, "La tua Watchlist:", SqlQuery.getWatchlist(this.username), this.changer);
-				});
-			} else {
-				FXMLLoader loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
-				loader.setControllerFactory(c -> {
-					return new SearchResultController(this.username, "Sui tuoi servizi:", SqlQuery.getProductForUserService(this.username), this.changer);
-				});
-			}
+				return new SearchResultController(this.username, "La tua Watchlist:", SQLGet.getWatchlist(this.username), this.changer);
+			});
+		} else if (e.getSource().equals(this.streaming)) {
+			loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
+			loader.setControllerFactory(c -> {
+				return new SearchResultController(this.username, "Sui tuoi servizi:", SQLGet.getProductByUserService(this.username), this.changer);
+			});
+		}
 		this.changer.loadNewStage(loader.load());
 	}
 	
 	@FXML void search () throws IOException {
 		loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
 		loader.setControllerFactory(c -> {
-			return new SearchResultController(this.username, "Risultati ricerca:", SqlQuery.searchProductByTitle(this.search.getText()), this.changer);
+			return new SearchResultController(this.username, "Risultati ricerca:", SQLGet.getProductByTitle(this.search.getText()), this.changer);
 		});
 		this.changer.loadNewStage(loader.load());
 	}

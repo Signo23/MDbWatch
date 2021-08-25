@@ -23,12 +23,7 @@
         <Menu mnemonicParsing="false" text="Visualizza">
           <items>
             <MenuItem fx:id="watchlist" mnemonicParsing="false" onAction="#actionOnMenuItem" text="Watchlist" />
-            <MenuItem mnemonicParsing="false" onAction="#actionOnMenuItem" text="Disponibili sui tuoi servizi" />
-          </items>
-        </Menu>
-        <Menu fx:id="option" mnemonicParsing="false" text="Opzioni">
-          <items>
-            <MenuItem fx:id="streamingService" mnemonicParsing="false" onAction="#actionOnMenuItem" text="Servizi Streaming" />
+            <MenuItem fx:id="streaming" mnemonicParsing="false" onAction="#actionOnMenuItem" text="Disponibili sui tuoi servizi" />
           </items>
         </Menu>
       </menus>

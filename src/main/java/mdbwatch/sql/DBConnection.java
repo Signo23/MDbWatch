@@ -5,13 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-	private String dbName = "mdbwatch";
+	private static final String DB_NAME = "mdbwatch";
 	
-	public Connection getMySQLConnection()  {
+	public static Connection getConnection()  {
     	//MySQL locale
     	
        String driver = "com.mysql.jdbc.Driver";
-       String dbUri = "jdbc:mysql://localhost:3306/" + dbName +"?characterEncoding=latin1&serverTimezone=Europe/Rome";
+       String dbUri = "jdbc:mysql://localhost:3306/" + DB_NAME +"?characterEncoding=latin1&serverTimezone=Europe/Rome";
    	   String userName = "root";
    	   String password = "141000";
         

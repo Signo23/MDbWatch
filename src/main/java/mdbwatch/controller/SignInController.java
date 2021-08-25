@@ -8,7 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import mdbwatch.common.ViewChanger;
-import mdbwatch.sql.SqlQuery;
+import mdbwatch.sql.SQLAdd;
+import mdbwatch.sql.SQLVerify;
 
 public class SignInController {
 	
@@ -23,8 +24,8 @@ public class SignInController {
     }
     
     @FXML void signIn() throws IOException {
-    	if(!SqlQuery.isUserAlreayExsist(this.username.getText())) {
-    		SqlQuery.addUser(this.username.getText(), this.password.getText());
+    	if(!SQLVerify.isUserAlreayExsist(this.username.getText())) {
+    		SQLAdd.addUser(this.username.getText(), this.password.getText());
     		FXMLLoader loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/streamingSettings.fxml"));
         	loader.setControllerFactory(c -> {
         		return new StreamingSettingsController(this.username.getText(), this.changer);

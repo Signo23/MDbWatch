@@ -10,23 +10,25 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.VBox;
 import mdbwatch.common.ViewChanger;
 import mdbwatch.model.Product;
-import mdbwatch.model.SingleProduct;
-import mdbwatch.model.SerieTv;
+import mdbwatch.sql.SQLGet;
 
 public class SearchResultController {
 	
-	String username;
-	String labelText;
-	List<Product> result;
-	ViewChanger changer;
-	Map<Hyperlink, Integer> link;
+	private String username;
+	private String labelText;
+	private List<Product> result;
+	private ViewChanger changer;
+	private Map<Hyperlink, Integer> link;
+	private FXMLLoader loader;
 	
 	@FXML VBox filmPane, seriesPane, epTVPane;
 	@FXML Label label;
+	@FXML MenuItem streaming, watchlist, home;
 	
 	public SearchResultController(String username, String label, List<Product> searchResult, ViewChanger vc) {
 		this.labelText = label;
@@ -36,7 +38,7 @@ public class SearchResultController {
 		this.link = new HashMap<>();
 	}
 	
-	@FXML void initialize(){
+	@FXML void initialize() {
 		this.label.setText(this.labelText);
 		if(!this.result.isEmpty()) {
 			for (Product p : result) {
@@ -58,20 +60,36 @@ public class SearchResultController {
 					
 				});
 				this.link.put(hp, p.getIdProduct());
-				if (p instanceof SingleProduct ) {
-					if (((SingleProduct)p).getIdSerie() == 0) {
-						this.filmPane.getChildren().add(0, hp);
+				if (p.getIdSerie() == 0) {
+					if(p.getYear() == 0) {
+						this.seriesPane.getChildren().add(0, hp);
 					} else {
-						this.epTVPane.getChildren().add(0, hp);
+					    this.filmPane.getChildren().add(0, hp);
 					}
-				} else if (p instanceof SerieTv) {
-					this.seriesPane.getChildren().add(0, hp);
+				} else {
+					this.epTVPane.getChildren().add(0, hp);
 				}
 			} 
-		} else {
-			this.filmPane.getChildren().add(0, new Label("Nessun risultato"));
-			this.epTVPane.getChildren().add(0, new Label("Nessun risultato"));
-			this.seriesPane.getChildren().add(0, new Label("Nessun risultato"));
 		}
+	}
+	
+	@FXML void actionOnMenuItem (final ActionEvent e) throws IOException {
+			if (e.getSource().equals(this.watchlist)) {
+				loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
+				loader.setControllerFactory(c -> {
+					return new SearchResultController(this.username, "La tua Watchlist:", SQLGet.getWatchlist(this.username), this.changer);
+				});
+			} else if (e.getSource().equals(this.streaming)) {
+				loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
+				loader.setControllerFactory(c -> {
+					return new SearchResultController(this.username, "Sui tuoi servizi:", SQLGet.getProductByUserService(this.username), this.changer);
+				});
+			} else if (e.getSource().equals(this.home)) {
+				loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/home.fxml"));
+				loader.setControllerFactory(c -> {
+					return new HomeController(this.username, this.changer);
+				});
+			}
+		this.changer.loadNewStage(loader.load());
 	}
 }

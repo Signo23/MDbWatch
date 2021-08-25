@@ -21,15 +21,15 @@
             <Label layoutX="13.0" layoutY="80.0" text="Seleziona i tuoi servizi di streaming" />
             <Separator layoutX="14.0" layoutY="49.0" prefWidth="200.0" />
             <CheckBox fx:id="netflix" layoutX="23.0" layoutY="118.0" mnemonicParsing="false" text="Netflix" />
-            <CheckBox layoutX="23.0" layoutY="159.0" mnemonicParsing="false" text="Prime Video" />
-            <CheckBox layoutX="24.0" layoutY="200.0" mnemonicParsing="false" text="Disney+" />
-            <CheckBox layoutX="23.0" layoutY="286.0" mnemonicParsing="false" text="CHILI" />
-            <CheckBox layoutX="23.0" layoutY="240.0" mnemonicParsing="false" text="TIM Vision" />
-            <CheckBox layoutX="320.0" layoutY="118.0" mnemonicParsing="false" text="RakutenTv" />
-            <CheckBox layoutX="320.0" layoutY="159.0" mnemonicParsing="false" text="Apple TV+" />
-            <CheckBox layoutX="320.0" layoutY="200.0" mnemonicParsing="false" text="NOW" />
-            <CheckBox layoutX="320.0" layoutY="240.0" mnemonicParsing="false" text="RaiPlay" />
-            <CheckBox layoutX="320.0" layoutY="286.0" mnemonicParsing="false" text="Infinity" />
+            <CheckBox fx:id="prime_video" layoutX="23.0" layoutY="159.0" mnemonicParsing="false" text="Prime Video" />
+            <CheckBox fx:id="disney_plus" layoutX="24.0" layoutY="200.0" mnemonicParsing="false" text="Disney+" />
+            <CheckBox fx:id="chili" layoutX="23.0" layoutY="286.0" mnemonicParsing="false" text="CHILI" />
+            <CheckBox fx:id="tim_vision" layoutX="23.0" layoutY="240.0" mnemonicParsing="false" text="TIM Vision" />
+            <CheckBox fx:id="rakutenTv" layoutX="320.0" layoutY="118.0" mnemonicParsing="false" text="RakutenTv" />
+            <CheckBox fx:id="appleTv_plus" layoutX="320.0" layoutY="159.0" mnemonicParsing="false" text="Apple TV+" />
+            <CheckBox fx:id="now" layoutX="320.0" layoutY="200.0" mnemonicParsing="false" text="NOW" />
+            <CheckBox fx:id="rai" layoutX="320.0" layoutY="240.0" mnemonicParsing="false" text="RaiPlay" />
+            <CheckBox fx:id="infinity" layoutX="320.0" layoutY="286.0" mnemonicParsing="false" text="Infinity" />
             <Button layoutX="574.0" layoutY="361.0" mnemonicParsing="false" onAction="#next" text="Salva" />
       </children>
     </AnchorPane>

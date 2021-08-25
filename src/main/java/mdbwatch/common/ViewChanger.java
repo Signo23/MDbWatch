@@ -14,6 +14,7 @@ public class ViewChanger {
 	
 	public void loadNewStage(Parent root) {
 		this.stage.setScene(new Scene(root));
+		this.stage.setResizable(false);
 		this.stage.show();
 	}
 }

@@ -1,6 +1,6 @@
 package mdbwatch.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Person {
 	private int id;
@@ -54,6 +54,10 @@ public class Person {
 	 */
 	public void setBirthDay(Date birthDay) {
 		this.birthDay = birthDay;
+	}
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", name=" + name + ", surname=" + surname + ", birthDay=" + birthDay + "]";
 	}
 	
 	

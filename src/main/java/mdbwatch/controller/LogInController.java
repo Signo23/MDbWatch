@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import mdbwatch.common.ViewChanger;
-import mdbwatch.sql.SqlQuery;
+import mdbwatch.sql.SQLVerify;
 
 public class LogInController {
 	
@@ -26,7 +26,7 @@ public class LogInController {
     }
     
     @FXML void logIn() throws IOException {
-    	if(SqlQuery.verifyUser(this.username.getText(), password.getText())) {
+    	if(SQLVerify.verifyUser(this.username.getText(), password.getText())) {
     		FXMLLoader loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/home.fxml"));
         	loader.setControllerFactory(c -> {
         		return new HomeController(this.username.getText(), this.changer);

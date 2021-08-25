@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.stage.Stage;
 import mdbwatch.common.ViewChanger;
 import mdbwatch.controller.FirstStageController;
-import mdbwatch.sql.SqlQuery;
+import mdbwatch.sql.SQLInit;
 
 public class Launcher extends Application {
 	
@@ -22,7 +22,7 @@ public class Launcher extends Application {
         final Parent root = loader.load();
         stage.setTitle("MdbWatch");
         vc.loadNewStage(root);
-        SqlQuery.createDB();
+        SQLInit.createDB();
     }
     public static void run(final String[] args) {
         launch(args);

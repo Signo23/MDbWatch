@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mdbwatch.controller.MusicViewController">
+  <children>
+      <MenuBar>
+         <menus>
+            <Menu mnemonicParsing="false" text="Visualizza">
+               <items>
+                  <MenuItem fx:id="watchlist" mnemonicParsing="false" onAction="#actionOnMenuItem" text="Watchlist" />
+                  <MenuItem fx:id="streaming" mnemonicParsing="false" onAction="#actionOnMenuItem" text="Disponibil sui tuoi servizi" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="home" mnemonicParsing="false" onAction="#actionOnMenuItem" text="Home" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label fx:id="title" alignment="CENTER" layoutX="14.0" layoutY="14.0" style="&#10;" text="Titolo" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+          <font>
+            <Font size="24.0" />
+          </font>
+        </Label>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="88.0" style="&#10;" text="Compaiono:" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <VBox fx:id="personPane" layoutX="14.0" layoutY="115.0" prefHeight="244.0" prefWidth="609.0" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
