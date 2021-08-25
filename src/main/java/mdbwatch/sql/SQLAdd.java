@@ -1,11 +1,18 @@
 package mdbwatch.sql;
-
+/**
+ /* Contain all methods that add add something on DB.
+ */
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class SQLAdd {
 
+	/**
+	 * Add a user in DB
+	 * @param username to add
+	 * @param password to add
+	 */
 	public static void addUser(String username, String password) {
 		 Connection connection = DBConnection.getConnection();
 	     PreparedStatement statement = null; 
@@ -30,8 +37,13 @@ public class SQLAdd {
 	    		 }
 	    	 }
 	}
-	
-	
+
+	/**
+	 * Add a vote
+	 * @param username of the voter
+	 * @param idProduct of the product voted
+	 * @param vote
+	 */
 	public static void addVote(String username, int idProduct, int vote) {
 		 Connection connection = DBConnection.getConnection();
 	     PreparedStatement statement = null; 
@@ -57,7 +69,12 @@ public class SQLAdd {
 	    		 }
 	    	 }
 	}
-	
+
+	/**
+	 * Add a product in user's watchlist.
+	 * @param username owner of wathclist
+	 * @param idProduct to add in the watchlist
+	 */
 	public static void addOnWatchlist (String username, int idProduct) {
 		 Connection connection = DBConnection.getConnection();
 	     PreparedStatement statement = null; 
@@ -82,7 +99,12 @@ public class SQLAdd {
 	    		 }
 	    	 }
 	}
-	
+
+	/**
+	 * Add a streaming service in the user's choices.
+	 * @param username user
+	 * @param streaming service to add
+	 */
 	public static void addUserStreamingService(String username, String streaming) {
 		Connection connection = DBConnection.getConnection();
 	     PreparedStatement statement = null; 

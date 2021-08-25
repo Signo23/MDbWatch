@@ -1,5 +1,7 @@
 package mdbwatch.controller;
-
+/**
+ * Controller fot productView.fxml
+ */
 
 import java.io.IOException;
 import java.util.List;
@@ -40,12 +42,21 @@ public class ProductViewController {
 	@FXML Button voteButton, addWatchlistButton, tvEp;
 	@FXML MenuItem streaming, watchlist, home;
 
+	/**
+	 * Pass parameter.
+	 * @param username of user
+	 * @param id of Product to upload
+	 * @param vc for change view
+	 */
 	ProductViewController(String username, int id, ViewChanger vc) {
 		this.idProduct = id;
 		this.changer = vc;
 		this.username = username;
 	}
-	
+
+	/**
+	 * Initialize the view.
+	 */
 	@FXML void initialize() {
 		this.prod = SQLGet.getProductById(this.idProduct);
 		
@@ -92,7 +103,7 @@ public class ProductViewController {
 				this.fromSerie.setText("");
 			} 
 			
-			List<StreamingService> streaming = SQLGet.getProductAviability(this.prod.getIdProduct());
+			List<StreamingService> streaming = SQLGet.getProductAvalability(this.prod.getIdProduct());
 			for(final StreamingService s : streaming) {
 				this.streamingBox.getChildren().add(new Label(s.getName()));
 			}
@@ -170,12 +181,19 @@ public class ProductViewController {
 		
 	} 
 	
-	
+	/**
+	 * Add the product on user's watchlist.
+	 */
 	private void addWatchlistProduct() {
 		SQLAdd.addOnWatchlist(username, idProduct);
 		this.addWatchlistButton.setDisable(true);
 	}
-	
+
+	/**
+	 * Load Person's view.
+	 * @param id of person to upload information
+	 * @throws IOException common IO exception
+	 */
 	private void goToPersonView(int id) throws IOException {
 		loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/personView.fxml"));
 		loader.setControllerFactory(c -> {
@@ -183,18 +201,29 @@ public class ProductViewController {
 		});
 		this.changer.loadNewStage(loader.load());
 	}
-	
+
+	/**
+	 * Change the vote in VoteMenu
+	 * @param e to get the vote
+	 */
 	@FXML void selectVote(final ActionEvent e) {
 		this.voteMenu.setText(((MenuItem)e.getSource()).getText());
 	}
-	
+
+	/**
+	 * Add the text in voteMenu to product's votes.
+	 */
 	@FXML void vote() {
 		SQLAdd.addVote(this.username, this.idProduct, Integer.parseInt(this.voteMenu.getText()));
 		this.voteMenu.setText("-");
 		this.voteMenu.setDisable(true);
 		this.voteButton.setDisable(true);
 	}
-	
+
+	/**
+	 * If the product is a tv's serie, load a searchResult's view with episodes of the product.
+	 * @throws IOException
+	 */
 	@FXML void goToEpisodies() throws IOException {
 		loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
 		loader.setControllerFactory(c -> {
@@ -202,7 +231,11 @@ public class ProductViewController {
 		});
 		this.changer.loadNewStage(loader.load());
 	}
-	
+
+	/**
+	 * Load a searchResult's view with product of production.
+	 * @throws IOException common IO exception.
+	 */
 	@FXML void goToProductionProduct() throws IOException {
 		loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
 		loader.setControllerFactory(c -> {
@@ -211,7 +244,13 @@ public class ProductViewController {
 		});
 		this.changer.loadNewStage(loader.load());
 	}
-	
+
+	/**
+	 * Action performed for MenuItem.
+	 * Change the view according with MenuItem.
+	 * @param e for get source's MenuItem
+	 * @throws IOException common IO exception
+	 */
 	@FXML void actionOnMenuItem (final ActionEvent e) throws IOException {
 		if (e.getSource().equals(this.watchlist)) {
 			loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));

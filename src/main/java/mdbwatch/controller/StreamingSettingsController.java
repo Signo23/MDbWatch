@@ -9,7 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.CheckBox;
 import mdbwatch.common.ViewChanger;
 import mdbwatch.sql.SQLAdd;
-
+/**Controller for steamingSettings.fxml*/
 public class StreamingSettingsController {
 	
 	private ViewChanger changer;
@@ -17,12 +17,20 @@ public class StreamingSettingsController {
 	
 	@FXML CheckBox netflix, prime_video, disney_plus, chili, tim_vision, rakutenTv, appleTv_plus, now, rai, infinity;
 	List<CheckBox> services;
-	
+
+	/**
+	 * Pass username and viewChanger
+	 * @param username of user
+	 * @param vc for change view
+	 */
 	public StreamingSettingsController(String username, ViewChanger vc) {
 		this.changer = vc;
 		this.username = username;
 	}
-	
+
+	/**
+	 * Initialize the view.
+	 */
 	public void initialize() {
 		this.services = new ArrayList<>();
 		this.services.add(appleTv_plus);
@@ -37,6 +45,10 @@ public class StreamingSettingsController {
 		this.services.add(tim_vision);
 	}
 
+	/**
+	 * Load home's view and save Streaming Service for the user
+	 * @throws IOException common IO exception
+	 */
 	@FXML public void next() throws IOException {
 		for(final CheckBox cb : this.services) {
 			if(cb.isSelected()) {

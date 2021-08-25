@@ -1,4 +1,8 @@
 package mdbwatch.sql;
+/**
+ * Contain all methods that get something from DB.
+ * This class too long, it could be split in future.
+ */
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +18,11 @@ import mdbwatch.model.StreamingService;
 
 public class SQLGet {
 
+	/**
+	 * Get product's average's vote.
+	 * @param idProduct product
+	 * @return averages
+	 */
 	public static long getAverageProduct(int idProduct) {
 		long avg = 0;
         
@@ -45,7 +54,11 @@ public class SQLGet {
 	return avg;
 	}
 	
-	
+	/**
+	 * Get products from user's choices of Streaming Services.
+	 * @param username for choices
+	 * @return List of Product 
+	 */
 	public static List<Product> getProductByUserService(String username){
 		List<Product> products = new ArrayList<>();
         Connection connection = DBConnection.getConnection();
@@ -87,7 +100,11 @@ public class SQLGet {
 		return products;
 	}
 
-
+	/**
+	 * Get user's wathclist.
+	 * @param username user
+	 * @return List of Product in watchlist
+	 */
 	public static List<Product> getWatchlist(String username) {
 		List<Product> products = new ArrayList<>();
         
@@ -131,7 +148,11 @@ public class SQLGet {
 	return products;
 	}
 
-
+	/**
+	 * Get product produced by a production
+	 * @param production
+	 * @return List of Product produced
+	 */
 	public static List<Product> getProductForProduction (String production) {
 		List<Product> products = new ArrayList<>();
         
@@ -174,7 +195,12 @@ public class SQLGet {
         }
 	return products;
 	}
-	
+
+	/**
+	 * Get serie's episodies.
+	 * @param idSerie
+	 * @return List of Product that contain episodies
+	 */
 	public static List<Product> getEpisodies (int idSerie) {
 List<Product> products = new ArrayList<>();
         
@@ -217,8 +243,12 @@ List<Product> products = new ArrayList<>();
         }
 	return products;
 	}
-	
-	
+
+	/**
+	 * Search in DB a product by ID.
+	 * @param id to search
+	 * @return the Product if exist
+	 */
 	public static Product getProductById(int id) {
 		 Product sp = null;
 	        
@@ -258,6 +288,11 @@ List<Product> products = new ArrayList<>();
 		return sp;
 	}
 
+	/**
+	 * Search in DB if exist a product that contain the title.
+	 * @param title to control
+	 * @return List of Product containing the title
+	 */
 	public static List<Product> getProductByTitle(String title){
 		 List<Product> products = new ArrayList<>();
 	        
@@ -297,7 +332,12 @@ List<Product> products = new ArrayList<>();
 	        }
 		return products;
 	}
-	
+
+	/**
+	 * Search in DB a persona from an ID.
+	 * @param idPerson to search
+	 * @return the persone if exist
+	 */
 	public static Person getPersonById(int idPerson) {
 		Person person = null;
 		Connection connection = DBConnection.getConnection();
@@ -331,7 +371,12 @@ List<Product> products = new ArrayList<>();
        }
        return person;
 	}
-	
+
+	/**
+	 * Search in DB all the person that have worked for the music.
+	 * @param idMusic of the music
+	 * @return List of person that worked on it
+	 */
 	public static List<Person> getPersonFromMusic(int idMusic) {
 		List<Person> p = new ArrayList<>();
 		Connection connection = DBConnection.getConnection();
@@ -373,7 +418,12 @@ List<Product> products = new ArrayList<>();
        return p;
 	}
 
-	public static List<StreamingService> getProductAviability(int idProduct) {
+	/**
+	 * Search in DB where the product is available.
+	 * @param idProduct to search
+	 * @return List of streaming service that have product's 
+	 */
+	public static List<StreamingService> getProductAvalability(int idProduct) {
 		List<StreamingService> list = new ArrayList<>();
 		Connection connection = DBConnection.getConnection();
        PreparedStatement statement = null;
@@ -407,7 +457,12 @@ List<Product> products = new ArrayList<>();
        }
        return list;
 	}
-	
+
+	/**
+	 * Search the person that worked in the product.
+	 * @param idProduct of product
+	 * @return List of Person that worked in it.
+	 */
 	public static List<Person> getActorsForProduct(int idProduct) {
 		List<Person> actors = new ArrayList<>();
 		Connection connection = DBConnection.getConnection();
@@ -446,7 +501,12 @@ List<Product> products = new ArrayList<>();
 	       }
 		return actors;
 	}
-	
+
+	/**
+	 * Search the writers of a product.
+	 * @param idProduct of the product
+	 * @return List fo Person that are writers in the product
+	 */
 	public static List<Person> getWritersForProduct(int idProduct) {
 		List<Person> writers = new ArrayList<>();
 		Connection connection = DBConnection.getConnection();
@@ -485,7 +545,12 @@ List<Product> products = new ArrayList<>();
 	       }
 		return writers;
 	}
-	
+
+	/**
+	 * Search in DB the music for product.
+	 * @param idProduct of the product
+	 * @return List of Music in the product
+	 */
 	public static List<Music> getMusicForProduct(int idProduct) {
 		List<Music> music= new ArrayList<>();
 		Connection connection = DBConnection.getConnection();
@@ -570,7 +635,12 @@ List<Product> products = new ArrayList<>();
 	        }
 		return products;
 	}
-	
+
+	/**
+	 * Search Music in DB by id.
+	 * @param id of Music
+	 * @return the Music
+	 */
 	public static Music getMusicfromId(final int id) {
 		Music music  = null;
 		Connection connection = DBConnection.getConnection();

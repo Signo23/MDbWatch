@@ -274,7 +274,6 @@ insert into persone(Nome, Cognome, DataDiNascita)
 values ('Pauiline','Jefferson','1930-06-12');
 insert into persone(Nome, Cognome, DataDiNascita)
 values ('Kate','Brush','1958-07-30');
-insert into persone(Nome, Cognome, DataDiNascita)
 
 insert into prodotti (Titolo, Trama, Anno, idPersona, Produzione, idSerie, stagione, numeroEpisodio)
 values ('Episodio #1.1','Catherine Cawood è una poliziotta dell\'ironica Happy Valley, il soprannome della Calder Valley, nel West Yorkshire,

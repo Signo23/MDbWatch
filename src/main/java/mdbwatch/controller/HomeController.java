@@ -1,5 +1,7 @@
 package mdbwatch.controller;
-
+/**
+ * Controller for home.fxml
+ */
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -23,15 +25,29 @@ public class HomeController {
 	@FXML Label label;
 	@FXML TextField search;
 	
+	/**
+	 * Pass username and viewChanger.
+	 * @param username for search in sql
+	 * @param vc for change view
+	 */
 	public HomeController(final String username, final ViewChanger vc) {
 		this.username = username;
 		this.changer = vc;
 	}
 
+	/**
+	 * Initialize the view.
+	 */
 	@FXML void initialize() {
 		this.label.setText("Ciao, " + this.username);
 	}
 
+	/**
+	 * Action performed for MenuItem.
+	 * Change the view according with MenuItem.
+	 * @param e for get source's MenuItem
+	 * @throws IOException common IO exception
+	 */
 	@FXML void actionOnMenuItem (final ActionEvent e) throws IOException {
 		if (e.getSource().equals(this.watchlist)) {
 			loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
@@ -46,7 +62,11 @@ public class HomeController {
 		}
 		this.changer.loadNewStage(loader.load());
 	}
-	
+
+	/**
+	 * Search result by search text field's text and load the search's result's view.
+	 * @throws IOException common IO exception
+	 */
 	@FXML void search () throws IOException {
 		loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));
 		loader.setControllerFactory(c -> {
@@ -54,7 +74,12 @@ public class HomeController {
 		});
 		this.changer.loadNewStage(loader.load());
 	}
-	
+
+	/**
+	 * Control if enter's key was pressed on search's texField, if it is launch the search.
+	 * @param k to control
+	 * @throws IOException common IO exception
+	 */
 	@FXML void searchEnter(KeyEvent k) throws IOException {
 		if(k.getCode().equals(KeyCode.ENTER)) {
 			this.search();

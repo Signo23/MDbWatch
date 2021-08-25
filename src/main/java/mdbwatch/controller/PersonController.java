@@ -1,5 +1,5 @@
 package mdbwatch.controller;
-
+/**Controller for person.fxml*/
 import java.io.IOException;
 import java.util.List;
 
@@ -24,13 +24,22 @@ public class PersonController {
 	@FXML VBox productPane;
 	@FXML MenuItem streaming, watchlist, home;
 	@FXML Label name, birthday;
-	
+
+	/**
+	 * Pass username, peson's id and view changer.
+	 * @param username of user
+	 * @param id of person to upload the info 
+	 * @param changer for change the view
+	 */
 	PersonController(String username, int id, ViewChanger changer) {
 		this.username = username;
 		this.changer = changer;
 		this.person = SQLGet.getPersonById(id);
 	}
-	
+
+	/**
+	 * Initialize the view.
+	 */
 	@FXML void initialize() {
 		this.name.setText(this.person.getName() + " " + this.person.getSurname());
 		this.birthday.setText(this.person.getBirthDay().toString());
@@ -50,7 +59,13 @@ public class PersonController {
 			this.productPane.getChildren().add(0, product);
 		}
 	}
-	
+
+	/**
+	 * Action performed for MenuItem.
+	 * Change the view according with MenuItem.
+	 * @param e for get source's MenuItem
+	 * @throws IOException common IO exception
+	 */
 	@FXML void actionOnMenuItem (final ActionEvent e) throws IOException {
 		if (e.getSource().equals(this.watchlist)) {
 			loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));

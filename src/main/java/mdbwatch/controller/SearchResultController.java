@@ -1,5 +1,5 @@
 package mdbwatch.controller;
-
+/**Controller of searchResult.fxml*/
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +29,14 @@ public class SearchResultController {
 	@FXML VBox filmPane, seriesPane, epTVPane;
 	@FXML Label label;
 	@FXML MenuItem streaming, watchlist, home;
-	
+
+	/**
+	 * Pass parameter.
+	 * @param username of user
+	 * @param label for initialize the view
+	 * @param searchResult to load
+	 * @param vc for change the view
+	 */
 	public SearchResultController(String username, String label, List<Product> searchResult, ViewChanger vc) {
 		this.labelText = label;
 		this.result = searchResult;
@@ -37,7 +44,10 @@ public class SearchResultController {
 		this.username = username;
 		this.link = new HashMap<>();
 	}
-	
+
+	/**
+	 * Initialize the view with search's result.
+	 */
 	@FXML void initialize() {
 		this.label.setText(this.labelText);
 		if(!this.result.isEmpty()) {
@@ -72,7 +82,13 @@ public class SearchResultController {
 			} 
 		}
 	}
-	
+
+	/**
+	 * Action performed for MenuItem.
+	 * Change the view according with MenuItem.
+	 * @param e for get source's MenuItem
+	 * @throws IOException common IO exception
+	 */
 	@FXML void actionOnMenuItem (final ActionEvent e) throws IOException {
 			if (e.getSource().equals(this.watchlist)) {
 				loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));

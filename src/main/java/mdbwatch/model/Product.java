@@ -1,4 +1,7 @@
 package mdbwatch.model;
+/**
+ * Model a Cinematic's Product
+ */
 
 public class Product {
 	

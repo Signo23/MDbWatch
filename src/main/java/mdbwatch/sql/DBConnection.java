@@ -1,12 +1,18 @@
 package mdbwatch.sql;
-
+/**
+ * Conncet to DB.
+ */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
 	private static final String DB_NAME = "mdbwatch";
-	
+
+	/**
+	 * Connect to the DB.
+	 * @return connection to DB
+	 */
 	public static Connection getConnection()  {
     	//MySQL locale
     	

@@ -1,5 +1,7 @@
 package mdbwatch.sql;
-
+/**
+ * Initialize the DB.
+ */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -32,7 +34,11 @@ public class SQLInit {
 		}
 	return null;
 	}
-	
+
+	/**
+	 * Initialize the DB.
+	 * @throws SQLException common SQL exception
+	 */
 	public static void createDB() throws SQLException {
 		Connection connection = DBConnection.getConnection();
 	    Statement statement = null;

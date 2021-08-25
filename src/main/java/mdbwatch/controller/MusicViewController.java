@@ -1,5 +1,7 @@
 package mdbwatch.controller;
-
+/**
+ * Controller for musicView.fxml
+ */
 import java.io.IOException;
 import java.util.List;
 
@@ -25,13 +27,21 @@ public class MusicViewController {
 	@FXML MenuItem streaming, watchlist, home;
 	@FXML Label title;
 	@FXML VBox personPane;
-	
+
+	/**
+	 * @param username of user
+	 * @param id of Music
+	 * @param changer for change the view
+	 */
 	MusicViewController(String username, int id, ViewChanger changer) {
 		this.username = username;
 		this.changer = changer;
 		this.music = SQLGet.getMusicfromId(id);
 	}
-	
+
+	/**
+	 * Initialize the view.
+	 */
 	public void initialize() {
 		this.title.setText(this.music.getTitle());
 		List<Person> person = SQLGet.getPersonFromMusic(this.music.getIdMusic());
@@ -52,7 +62,13 @@ public class MusicViewController {
 			this.personPane.getChildren().add(0, hp);
 		}
 	}
-	
+
+	/**
+	 * Action performed for MenuItem.
+	 * Change the view according with MenuItem.
+	 * @param e for get source's MenuItem
+	 * @throws IOException common IO exception
+	 */
 	@FXML void actionOnMenuItem (final ActionEvent e) throws IOException {
 		if (e.getSource().equals(this.watchlist)) {
 			loader = new FXMLLoader(ClassLoader.getSystemResource("layouts/searchResult.fxml"));

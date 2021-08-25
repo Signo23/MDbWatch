@@ -1,5 +1,7 @@
 package mdbwatch.model;
-
+/**
+ * Model a person.
+ */
 import java.sql.Date;
 
 public class Person {

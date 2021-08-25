@@ -1,3 +1,6 @@
+/**
+ * It Load the first View
+ */
 package mdbwatch;
 
 import javafx.application.Application;

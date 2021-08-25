@@ -1,5 +1,7 @@
 package mdbwatch.model;
-
+/**
+ * Model a Streaming Service
+ */
 public class StreamingService {
 
     private String name;

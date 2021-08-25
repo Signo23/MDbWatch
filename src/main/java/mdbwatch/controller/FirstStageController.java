@@ -1,5 +1,7 @@
 package mdbwatch.controller;
-
+/**
+ * Controller for firstStage.fxml
+ */
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -16,10 +18,19 @@ public class FirstStageController {
     @FXML
     private Button logIn;
 
-    
+    /**
+     * Pass a ViewChanger.
+     * @param vc for change view
+     */
     public FirstStageController(ViewChanger vc) {
     	this.changer = vc;
     }
+
+    /**
+     * Change view when click on logIn's button or signIn's button.
+     * @param e event for get button
+     * @throws IOException
+     */
     @FXML
     public final void clickOn(final ActionEvent e) throws IOException {
     	if (e.getSource().equals(logIn)) {

@@ -1,5 +1,7 @@
 package mdbwatch.model;
-
+/**
+ * Model a music's object
+ */
 public class Music {
     
     private int idMusic;
