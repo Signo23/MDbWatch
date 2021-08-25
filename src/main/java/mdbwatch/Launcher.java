@@ -1,8 +1,6 @@
-/**
- * It Load the first View
- */
-package mdbwatch;
 
+package mdbwatch;
+/** It Load the first View.*/
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

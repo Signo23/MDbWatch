@@ -42,7 +42,7 @@ public class SQLAdd {
 	 * Add a vote
 	 * @param username of the voter
 	 * @param idProduct of the product voted
-	 * @param vote
+	 * @param vote to add
 	 */
 	public static void addVote(String username, int idProduct, int vote) {
 		 Connection connection = DBConnection.getConnection();

@@ -150,7 +150,7 @@ public class SQLGet {
 
 	/**
 	 * Get product produced by a production
-	 * @param production
+	 * @param production to controll
 	 * @return List of Product produced
 	 */
 	public static List<Product> getProductForProduction (String production) {
@@ -198,7 +198,7 @@ public class SQLGet {
 
 	/**
 	 * Get serie's episodies.
-	 * @param idSerie
+	 * @param idSerie to controll
 	 * @return List of Product that contain episodies
 	 */
 	public static List<Product> getEpisodies (int idSerie) {

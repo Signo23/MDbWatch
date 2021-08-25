@@ -29,7 +29,7 @@ public class FirstStageController {
     /**
      * Change view when click on logIn's button or signIn's button.
      * @param e event for get button
-     * @throws IOException
+     * @throws IOException common IO exception
      */
     @FXML
     public final void clickOn(final ActionEvent e) throws IOException {
